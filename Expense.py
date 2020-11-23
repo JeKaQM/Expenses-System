@@ -5,3 +5,6 @@ if m == 1:
     print("Hello")
 else:
     print("Bye")
+    
+print("K")
+print("Hello")
