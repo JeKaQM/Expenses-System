@@ -32,10 +32,12 @@ class Expense_System:
                 Expense_System.Edit_mode_Add()
             elif edit_choice == 2:
                 edit_run = False
-                Edit_mode_Delete()
+                Expense_System.Edit_mode_Delete()
     
     def Edit_mode_Add():
-        ExpenseAdd = list(map(str, input('Enter Description: ').split(',')))
+        Desc = list(map(str, input('Enter Description: ').split(',')))
+        Cat = list(map(str, input('Enter Category: ').split(',')))
+        Amount = list(map(str, input('Enter Amount: ').split(',')))
         print("Expense has been successfully stored!")
         m_choice = input("Please choose if you want to return to main menu(1) or Edit Menu(2)")
         if m_choice == "1":
@@ -48,7 +50,14 @@ class Expense_System:
         
     
     def Edit_mode_Delete():
-        pass
+        print("Please give the description of Expense you want to remove")
+        re = input("Please enter the description of the expense: ")
+        if re == Desc:
+            Desc.remove(re)
+            print("This has been succseffuly removed!")
+        else:
+            print("No Expense found!")
+            Expense_System.Edit_mode_Delete()
                 
         
         
