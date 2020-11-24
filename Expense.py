@@ -7,8 +7,8 @@ class Expense_System:
     
     def menu():
         print("Welcome To Expenses system")
-        choice = int(input("Please choose the mode, 1 = Edit Mode, 2 = Analysis mode: ")
-        run = True
+        choice = int(input("Please choose the mode, 1 = Edit Mode, 2 = Analysis mode: "))
+        r = True
         while run == True:
             if choice == 1:
                 run = False
@@ -26,7 +26,7 @@ class Expense_System:
         
         
     def Analysis_mode():
-        print()
+        print("")
     
                 
             
