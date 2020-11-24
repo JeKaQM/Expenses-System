@@ -35,14 +35,16 @@ class Expense_System:
                 Edit_mode_Delete()
     
     def Edit_mode_Add():
-        desc = input("What is the description?")
-        cat = input("What is the category")
-        amount = int(input("What is the amount"))
-        Expense_System.Expense_list.append(Expense_System(desc, cat, amount))
-        print(str(e))
-        
-        
-        
+        ExpenseAdd = list(map(str, input('Enter Description: ').split(',')))
+        print("Expense has been successfully stored!")
+        m_choice = input("Please choose if you want to return to main menu(1) or Edit Menu(2)")
+        if m_choice == "1":
+            Expense_System.menu()
+        elif m_choice == "2":
+            Expense_System.Edit_mode_menu()
+        else:
+            print("Invalid choice returning back to main menu!")
+            Expense_System.Edit_mode_menu()
         
     
     def Edit_mode_Delete():
@@ -53,8 +55,6 @@ class Expense_System:
     def Analysis_mode():
         pass
     
-    def __str__(self):
-        return Expense_System(str(self.desc), str(self.cat), str(self.amount))
                 
 Expense_System.menu()
 
