@@ -39,7 +39,6 @@ class Expense_System:
         cat = input("What is the category")
         amount = int(input("What is the amount"))
         Expense_System.Expense_list.append(Expense_System(desc, cat, amount))
-        e = Expense_System(desc, cat, amount)
         print(str(e))
         
         
@@ -55,7 +54,7 @@ class Expense_System:
         pass
     
     def __str__(self):
-        return Expense_System(self.desc, self.cat, self.amount)
+        return Expense_System(str(self.desc), str(self.cat), str(self.amount))
                 
 Expense_System.menu()
 
