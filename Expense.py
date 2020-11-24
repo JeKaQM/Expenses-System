@@ -4,6 +4,8 @@ class Expense_System:
         self.desc = desc
         self.cat = cat
         self.amount = amount
+        
+    Expense_list = []
     
     def menu():
         print("Welcome To Expenses system")
@@ -12,7 +14,7 @@ class Expense_System:
         while run == True:
             if choice == 1:
                 run = False
-                Edit_mode()
+                Expense_System.Edit_mode_menu()
             elif choice == 2:
                 run = False
                 Analysis_mode()
@@ -27,17 +29,33 @@ class Expense_System:
         while edit_run == True:
             if edit_choice == 1:
                 edit_run = False
-                Edit_mode_Add()
+                Expense_System.Edit_mode_Add()
             elif edit_choice == 2:
                 edit_run = False
                 Edit_mode_Delete()
-                
+    
+    def Edit_mode_Add():
+        desc = input("What is the description?")
+        cat = input("What is the category")
+        amount = int(input("What is the amount"))
+        Expense_System.Expense_list.append(Expense_System(desc, cat, amount))
+        e = Expense_System(desc, cat, amount)
+        print(str(e))
+        
+        
+        
+        
+    
+    def Edit_mode_Delete():
+        pass
                 
         
         
     def Analysis_mode():
-        print()
+        pass
     
+    def __str__(self):
+        return Expense_System(self.desc, self.cat, self.amount)
                 
-            
+Expense_System.menu()
 
