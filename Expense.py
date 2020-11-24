@@ -1,10 +1,5 @@
 class Expense_System:
-    
-    def __init__(self, desc, cat, amount):
-        self.desc = desc
-        self.cat = cat
-        self.amount = amount
-        
+      
     global Expense_list
     Expense_list = []
     
@@ -18,14 +13,14 @@ class Expense_System:
                 Expense_System.Edit_mode_menu()
             elif choice == 2:
                 run = False
-                Analysis_mode()
+                Expense_System.Analysis_mode()
             else:
                 print("Error, wrong choice")
     
     
     def Edit_mode_menu():
         print("Welcome to Edit Mode!")
-        edit_choice = int(input("Please choose what you want to edit, 1 = Add Expense, 2 = Delete Expense"))
+        edit_choice = int(input("Please choose what you want to edit, 1 = Add Expense, 2 = Delete Expense: "))
         edit_run = True
         while edit_run == True:
             if edit_choice == 1:
@@ -43,9 +38,9 @@ class Expense_System:
         NewList.append(Desc)
         NewList.append(Cat)
         NewList.append(Amount)
-        Expense_list.append(NewList)
+        Expense_list.append(NewList) #Note this gets stored in one singular list meaning we cant actually access the data like desc or Category etc, needs a fix
         print("Expense has been successfully stored!")
-        m_choice = input("Please choose if you want to return to main menu(1) or Edit Menu(2)")
+        m_choice = input("Please choose if you want to return to main menu(1) or Edit Menu(2): ")
         if m_choice == "1":
             Expense_System.menu()
         elif m_choice == "2":
@@ -59,7 +54,7 @@ class Expense_System:
         re = input("Please enter the description of the expense: ")
         for list in Expense_list:
             if re in list:
-                Expense_list.remove(list)
+                Expense_list.remove(list) #Note this clears the list regardless of whats been inputted its meant to clear the list if it has found the expense that matches description. Needs a fix
                 print("This has been succseffuly removed!")
                 print(Expense_list)
             else:
@@ -69,8 +64,21 @@ class Expense_System:
                 
         
         
-    def Analysis_mode():
-        pass
+    def Analysis_mode(): ## This needs to be fixed where for each list the correct values need to be displayed 
+        print("Welcome to the Analysis mode!")
+        print("Below you will find all the details of your expenses")
+        print("Here can be seen the list of all the epxenses", Expense_list[0])
+        print("The average spend per item is", Expense_list[0])
+        print("Total Expenditure is", Expense_list[0])
+        while True:
+            ch = int(input("To go back to main menu please press 1, to exit press 2: "))
+            if ch == 1:
+                Expense_System.menu();
+            elif ch == 2:
+                break;
+            else:
+                print("Error wrong choice")
+            
     
                 
 Expense_System.menu()
