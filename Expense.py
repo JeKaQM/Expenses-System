@@ -5,6 +5,7 @@ class Expense_System:
         self.cat = cat
         self.amount = amount
         
+    global Expense_list
     Expense_list = []
     
     def menu():
@@ -35,9 +36,14 @@ class Expense_System:
                 Expense_System.Edit_mode_Delete()
     
     def Edit_mode_Add():
-        Desc = list(map(str, input('Enter Description: ').split(',')))
-        Cat = list(map(str, input('Enter Category: ').split(',')))
-        Amount = list(map(str, input('Enter Amount: ').split(',')))
+        Desc = input("Please enter the description: ")
+        Cat = input("Please enter the category: ")
+        Amount = int(input("Please enter the amount: "))
+        NewList = []
+        NewList.append(Desc)
+        NewList.append(Cat)
+        NewList.append(Amount)
+        Expense_list.append(NewList)
         print("Expense has been successfully stored!")
         m_choice = input("Please choose if you want to return to main menu(1) or Edit Menu(2)")
         if m_choice == "1":
@@ -50,14 +56,16 @@ class Expense_System:
         
     
     def Edit_mode_Delete():
-        print("Please give the description of Expense you want to remove")
         re = input("Please enter the description of the expense: ")
-        if re == Desc:
-            Desc.remove(re)
-            print("This has been succseffuly removed!")
-        else:
-            print("No Expense found!")
-            Expense_System.Edit_mode_Delete()
+        for list in Expense_list:
+            if re in list:
+                Expense_list.remove(list)
+                print("This has been succseffuly removed!")
+                print(Expense_list)
+            else:
+                print("No Expense found!")
+                Expense_System.Edit_mode_Delete()
+                
                 
         
         
