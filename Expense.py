@@ -20,9 +20,19 @@ class Expense_System:
                 print("Error, wrong choice")
     
     
-    def Edit_mode():
+    def Edit_mode_menu():
         print("Welcome to Edit Mode!")
-        edit_choice = int(input("Please choose what you want to edit, 1 = Add Expense, 2 = Delete Expense")
+        edit_choice = int(input("Please choose what you want to edit, 1 = Add Expense, 2 = Delete Expense"))
+        edit_run = True
+        while edit_run == True:
+            if edit_choice == 1:
+                edit_run = False
+                Edit_mode_Add()
+            elif edit_choice == 2:
+                edit_run = False
+                Edit_mode_Delete()
+                
+                
         
         
     def Analysis_mode():
